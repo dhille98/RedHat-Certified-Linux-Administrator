@@ -7,7 +7,7 @@
 
     - in the Extended partition dived into multipul logical partitions 
     - `fdisk -l` this command help on disk partitions 
-    - in production env must flowon `3P+1E or 1P +1E`
+    - in production env must flow on `3P+1E or 1P +1E`
     - any raw disk not more then 3P Primary extended
     - Logical partions created under the Extended Partions 
 * **Disk Identification**
