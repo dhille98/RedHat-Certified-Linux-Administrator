@@ -84,18 +84,21 @@ echo "---">/sys/class/scsi_host/host2/scan
 * creating files system, after formate the file system `mkfs.ext4 /dev/sdc1`
 * after formate is finshing mount the some where 
 * mouning two types 
-      * temporary mounting 
-      * Permanent mounting 
+  
+    * temporary mounting 
+    * Permanent mounting 
+  
 * `mount /dev/sdc1 /linuxdate` mounting Linux data folder. check that mounted or not using command `df -h`. this is temporary mounting
 * all the runtime information / runtime informations  date under goes on `/etc/mtab`
 * make this permanent mounting on `/etc/fstab`
 
 * Q. /etc/fstab how many fields there 
-        1. frist field is nothing but `devices name`
-        2. second field is `mount point`
-        3. third field is `file system name`
-        4. mount options 
-        5. reaming parts `dumping` and `sqences`
+  
+    1. frist field is nothing but `devices name`
+    2. second field is `mount point`
+    3. third field is `file system name`
+    4. mount options 
+    5. reaming parts `dumping` and `sqences`
 
 * Q. what are the filesytem is mounted you can backup on this how 
 
@@ -117,6 +120,7 @@ echo "---">/sys/class/scsi_host/host2/scan
 ```
 ## issues faceing manging partitions 
 * **device is busy**
+
       * unmounted the disk on folder on the time this will showing 
       * check the which user working on file system using command like `fuser -cu /dev/sdc1`
       * kill that user working file use `fuser -ck /dev/sdc1`
@@ -136,6 +140,7 @@ echo "---">/sys/class/scsi_host/host2/scan
 * swapoff(partition name)     --> To deactivate the swap space use
 
 * physical memory means RAM
+  
       * RAM is olYtail memory 
       * RAM is primery memory
       * it is fastest memory
@@ -143,6 +148,7 @@ echo "---">/sys/class/scsi_host/host2/scan
       * Hard Disk (Secondary Memory)
       * RAM is less or equal 2 GB Calculation SWAP=2* RAM SIZE
       * RAM is more than 2GB Calcutations SWAP = 2GB + Size of RAM
+
 * `free -m` this command will show the swap memory and RAM
 * if you want to clear the swap memory clear the `cached`
 * check the swap memory usage on linux server use this command called `swapon -s`

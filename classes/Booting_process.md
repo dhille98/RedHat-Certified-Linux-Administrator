@@ -1,8 +1,8 @@
 # Booting Procedure and Kernel Parameters 
 
-* BIOS
-* MBR (Basic Input / Output System)
-* GRUB (Master Boot Recorder)
+* BIOS (Basic Input / Output System)
+* MBR (Master Boot Recorder)
+* GRUB 
 * Kernel
 * init
 * Runlevel
