@@ -6,7 +6,7 @@
 * what is absloute path vs realtive path 
 * supose `initrd` is currepted how will recover 
 * which is last programe has to be excuted in the operating system in booting process
-* 
+* tell me the install ftp server package on linux server.
 
 
 

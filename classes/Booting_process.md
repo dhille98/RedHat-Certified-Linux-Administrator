@@ -9,6 +9,7 @@
 
 
 * when ever turn on Liunx server sevaral stages run 
+
         * frist one was starting on BIOS
         * excuting on MBR
         * it will excuting on GRUB
@@ -16,28 +17,36 @@
         * Kernal will excuting on Init
         * Init will excuting on Runlevel
         * all service up and running, go and excuting commands 
+  
 * kernal mail role controling the security and manging the roles
 
 * **BOIS**
+  
       * BOIS stand for basic Input / Output System 
       * BOIS stand for system integration check (cheking for Hardware)
       * Bois searching and loading , excuting on our Bootloader that is MBR
+
 * **MBR**
+  
       * it is located in the frist sector of bootable disk 
       * `MBR` less then `512 bytes`, this will divided into three parts 
+  
           * primary Boot Loader (446b), it is having in the primary boot loader information 
           * partition table informations(64 bytes)
           * MBR validation check allocated into into (2bytes)
+
       * MBR contains information about GRUB 
       * this load excuting on GRUB
 * **GRUB**
+  
     * Grub is store informatins about the kernal
     * GRUb in file `boot/grub/grub.conf` or `/etc/grub.conf` in this file kernal image information store 
     * 
     * Grub dispaly the flash screen wait for few sec, you don't enter any thing by take a default kernal 
     * GRUB has Knowledge filesystem 
   
-* **Kernal**
+* **Kernal** 
+  
     * `Kernal` is interpreter intract with *hardware and shell* 
     * Q. which is last programe has to be excuted in the operating system in booting process
     * last programe is `initrd` in the file `/etc/rc` in the init programing `PID` of `1`
