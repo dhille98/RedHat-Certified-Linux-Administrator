@@ -4,11 +4,12 @@
     * Interactive Process
         * fg / bg process 
     * System Process or Daemon 
-    * Automatic or batch 
-          * schduled process 
+    * Automatic or batch
+      
+          - schduled process 
 
 * every process on child and parent id
-* check the process on Linux on `ps -ef` j
+* check the process on Linux on `ps -ef` 
 * to see the total number of system use the command is `ps -a`
 * check the process on user use command like on `ps -u <username>`
 * check attached process on terminal tty use command `ps -x`
