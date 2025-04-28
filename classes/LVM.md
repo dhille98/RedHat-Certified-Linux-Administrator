@@ -3,6 +3,7 @@
 NOTE: before read the document you know about disk partitions. [please read](https://github.com/dhille98/RedHat-Certified-Linux-Administrator/blob/main/classes/Disk_partitions.md) 
 
 * **What do you understand by LVM ?**
+
         - it is virtuvlalised disk 
         - logical volume is nothing but giving the flexbuilty
         - giving on mechanisam where able to expend or able to reduce or able reduce 
@@ -10,13 +11,15 @@ NOTE: before read the document you know about disk partitions. [please read](htt
         - Physical volume create Volume Group(VG)
         - volume group create a multipul volumes 
         - what ever physical volume is there same size of volume on volume group(VG)
-        - volume group is create a multipul logical volumes 
+        - volume group is create a multipul logical volumes
+  
 * understanding the images of LVM
 ![Preview](./images/Linux-02.png)
 
 
-* **How is the Architecture of LVM ?** 
-        - **component of LVM in LINUX**
+* **How is the Architecture of LVM ?**
+        **component of LVM in LINUX**
+  
             - Physical volume(PV)
             - Physical Extent(PE)
             - Volume Group(VG)
@@ -24,9 +27,9 @@ NOTE: before read the document you know about disk partitions. [please read](htt
             - Logical Extent(LE)
 
 * diffrent between LVM vs partitions
+  
       * if had on directory that dir is full can be extended on easily on by using LVM.
       * it's more complex on partitions part. this will take on downtime filesystem 
-
 
 
 * Phycical Volume is called as normal volume means Standred partitions. its Hex code is `8e`
@@ -39,7 +42,7 @@ NOTE: before read the document you know about disk partitions. [please read](htt
 * Logical Extent this also junk of disk, LE is mapping to physical extend  
 
 
-* mostly used commands form LVM
+* **mostly used commands form LVM**
 
 ```bash
 pvs         # Display physical volume
@@ -73,6 +76,7 @@ lvrremove   # Removing logical volume
 * attached to a volume on linux server 
 * scan the devices, check disk is added or not using command `fdisk -l` 
 * formate the disk `fdisk /dev/sdd`
+```
       * m
       * p
       * n
@@ -89,6 +93,7 @@ lvrremove   # Removing logical volume
       * 8e
       * p
       * w
+```
 * check the partions and update partitions table `partprobe /dev/sdd1` and `fdisk -l`
 * create physical volume use command `pv create /dev/sdd`
 * check that pv is created `pvs` or `pvdisplay`
@@ -106,6 +111,7 @@ lvrremove   # Removing logical volume
 * creating logical volume check that volume group `vgs`
 * check that logical volume `lvs`
 * creating logical volume `lvscreate -L 1GB -n <name-lv>`
+  
       * -L means size of logical volume 
       * -n name of the logical volume 
 
@@ -118,6 +124,7 @@ lvrremove   # Removing logical volume
 * mount on `mount -a`, check on` df -h`
   
 **Extended on Logical Volume**
+
 * extend volume on logical volume use command is `lv extend -L +1GB /dev/redhat/centos `
 * now check the disk `df -h` but this show previous state
 * you need informations, i have update on file system
@@ -136,13 +143,17 @@ lvrremove   # Removing logical volume
 
 
 * **Reducing the logical volume**
-* reducing logical volume few steps 
+  
+* reducing logical volume few steps
+  
         1. reducing logical volume it will take on downtime 
         2. check the size of the LV `df -h` / `lvs` / `lvdisplay` 
         3. unmount the logical volume `vi /etc/fstab` uncommit the lv and do this `umount/ubuntu ` now check on `df -h`
-        4. orginasing the date `e2fsck -f /dev/redhat/centos `
+        4. orginasing the date `e2fsck -f /dev/redhat/centos`
+  
                  1. -f means force checking even if the file system seems clean.
                  2. why need this step on reduceing volume, data was sprread every where all them set one side use this command
+  
 * before orginasing data 
   
 * ![Preview](./images/Linux-03.png)
@@ -151,12 +162,14 @@ lvrremove   # Removing logical volume
 * after orginsaing date 
 * ![Preview](./images/Linux-04.png)
 
- * after passing the command `e2fsck`   
+ * after passing the command `e2fsck`
+    
          * checking the inodes 
          * checking directory structure
          * directory connectivity
          * referrence counts
-         * group summery informations 
+         * group summery informations
+   
  * update file system using command `resize2fs /dev/redhat/centos 1G` (means that reduses the value reaing Gb pass that 5Gb-1GB=4GB)
  * reduce logical volume on `lvreduce -L -1G /dev/redhat/centos` after asking proment do you really want to reduce centos ?, we can pass the `y`
  * next step is excute command `lvs` or ` df -h`
@@ -164,16 +177,23 @@ lvrremove   # Removing logical volume
 
 
 * **Deleteing/removing the logical volume**
+  
     * in the file `etc/fstab` comment the logical volume or `delete` the line 
     * unmount the volume `umount /ubuntu/`
     * delete the logical volume using by command is `lvremove /dev/redhat/centos ` asking `y/n` enter `y`
+
 * **Removing the volume group**
+  
     * removing volume group using group `vgremove <redhat>` 
     * checking volume groups command called `vgs`
+
 * **Removing the physical volume**
+  
     * removing that physical volume using command called `pvremove /dev/sdd1`
     * after passing the command `lsblk` show the raw disk
+
 * **Creating the volume group by PE**
+  
     * creating a physical volume 
     * check on `pvs` and `fdisk -l`
     * 1PE is 4Mib 
